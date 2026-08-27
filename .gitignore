@@ -1,0 +1,11 @@
+# Ignore data files
+data/
+*.csv
+*.tsv
+*.jsonl
+
+# Python standard ignores
+__pycache__/
+*.pyc
+.env
+venv/
