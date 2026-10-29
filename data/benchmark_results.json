@@ -1,0 +1,835 @@
+{
+  "timestamp": "2026-10-28 19:24:12",
+  "hardware_environment": {
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU (8GB VRAM)",
+    "llm_backbone": "Llama-3.1-8B-Instruct (4-bit GGUF via Ollama, ~4.7GB VRAM)",
+    "embedder": "all-MiniLM-L6-v2 (CPU-side)",
+    "retriever": "FAISS Flat Inner Product (CPU-side)",
+    "verdict_aggregator": "PyTorch 2-layer MLP (10->16->3, 227 trainable parameters)"
+  },
+  "fever_benchmark": {
+    "dataset_description": "Curated FEVER benchmark subset (30 claims: balanced across Supported, Refuted, and NEI)",
+    "metrics": {
+      "accuracy": 0.8666666666666667,
+      "accuracy_ci_95": [
+        0.7032,
+        0.9469
+      ],
+      "macro_f1": 0.8643648763853368,
+      "macro_precision": 0.8897435897435897,
+      "macro_recall": 0.8666666666666667,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 0.7692307692307693,
+          "recall": 1.0,
+          "f1": 0.8695652173913043,
+          "support": 10
+        },
+        "REFUTED": {
+          "precision": 1.0,
+          "recall": 0.7,
+          "f1": 0.8235294117647058,
+          "support": 10
+        },
+        "NOT ENOUGH INFO": {
+          "precision": 0.9,
+          "recall": 0.9,
+          "f1": 0.9,
+          "support": 10
+        }
+      },
+      "confusion_matrix": [
+        [
+          10,
+          0,
+          0
+        ],
+        [
+          2,
+          7,
+          1
+        ],
+        [
+          1,
+          0,
+          9
+        ]
+      ],
+      "class_names": [
+        "SUPPORTED",
+        "REFUTED",
+        "NOT ENOUGH INFO"
+      ],
+      "total_samples": 30
+    },
+    "latency_stats": {
+      "verdict_aggregator_ms": {
+        "mean": 0.3433333333333334,
+        "p50": 0.32,
+        "p95": 0.48549999999999993,
+        "min": 0.24,
+        "max": 0.53
+      },
+      "total_pipeline_s": {
+        "mean": 7.480799999999999,
+        "p50": 7.104,
+        "p95": 11.113399999999999
+      },
+      "stage_means_s": {
+        "claim_extractor": 1.0365333333333333,
+        "evidence_retriever": 0.0181,
+        "cross_verifier": 6.425233333333334,
+        "verdict_aggregator": 0.0003433333333333334
+      }
+    },
+    "sample_details": [
+      {
+        "id": "test_sup_01",
+        "claim": "Marie Curie won the 1903 Nobel Prize in Physics along with Pierre Curie and Henri Becquerel.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.8540292978286743,
+        "latencies": {
+          "claim_extractor_s": 1.851,
+          "evidence_retriever_s": 0.029,
+          "cross_verifier_s": 10.117,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.38,
+          "total_pipeline_s": 11.999
+        },
+        "sub_claims": [
+          "Marie Curie won the 1903 Nobel Prize in Physics.",
+          "Pierre Curie won the 1903 Nobel Prize in Physics.",
+          "Henri Becquerel won the 1903 Nobel Prize in Physics."
+        ]
+      },
+      {
+        "id": "test_sup_02",
+        "claim": "Michael Collins served as the command module pilot during Apollo 11 while Armstrong and Aldrin walked on the Moon.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.936039388179779,
+        "latencies": {
+          "claim_extractor_s": 0.892,
+          "evidence_retriever_s": 0.013,
+          "cross_verifier_s": 5.574,
+          "feature_pooling_s": 0.0007,
+          "verdict_aggregator_ms": 0.42,
+          "total_pipeline_s": 6.481
+        },
+        "sub_claims": [
+          "Michael Collins was the command module pilot during Apollo 11.",
+          "Neil Armstrong and Buzz Aldrin walked on the Moon."
+        ]
+      },
+      {
+        "id": "test_sup_03",
+        "claim": "Alexander Fleming, Howard Florey, and Ernst Boris Chain were jointly awarded the 1945 Nobel Prize in Medicine for penicillin.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.7783116102218628,
+        "latencies": {
+          "claim_extractor_s": 1.661,
+          "evidence_retriever_s": 0.015,
+          "cross_verifier_s": 7.193,
+          "feature_pooling_s": 0.0005,
+          "verdict_aggregator_ms": 0.3,
+          "total_pipeline_s": 8.87
+        },
+        "sub_claims": [
+          "Alexander Fleming, Howard Florey, and Ernst Boris Chain were jointly awarded the 1945 Nobel Prize in Medicine.",
+          "The 1945 Nobel Prize in Medicine was awarded for penicillin.",
+          "Alexander Fleming, Howard Florey, and Ernst Boris Chain were involved in the development of penicillin."
+        ]
+      },
+      {
+        "id": "test_sup_04",
+        "claim": "Canberra is the federal capital of Australia, situated between Sydney and Melbourne in the Australian Capital Territory.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.7567309141159058,
+        "latencies": {
+          "claim_extractor_s": 1.01,
+          "evidence_retriever_s": 0.016,
+          "cross_verifier_s": 7.676,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.25,
+          "total_pipeline_s": 8.702
+        },
+        "sub_claims": [
+          "Canberra is the federal capital of Australia.",
+          "Canberra is situated between Sydney and Melbourne.",
+          "Canberra is located in the Australian Capital Territory."
+        ]
+      },
+      {
+        "id": "test_sup_05",
+        "claim": "Albert Einstein formulated the theory of Special Relativity in 1905 and General Relativity in 1915.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.6796961426734924,
+        "latencies": {
+          "claim_extractor_s": 0.985,
+          "evidence_retriever_s": 0.011,
+          "cross_verifier_s": 5.011,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.25,
+          "total_pipeline_s": 6.007
+        },
+        "sub_claims": [
+          "Albert Einstein formulated the theory of Special Relativity in 1905.",
+          "Albert Einstein formulated the theory of General Relativity in 1915."
+        ]
+      },
+      {
+        "id": "test_sup_06",
+        "claim": "Tim Berners-Lee developed the World Wide Web and created the first web browser at CERN.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.8026955127716064,
+        "latencies": {
+          "claim_extractor_s": 1.014,
+          "evidence_retriever_s": 0.013,
+          "cross_verifier_s": 4.751,
+          "feature_pooling_s": 0.0006,
+          "verdict_aggregator_ms": 0.42,
+          "total_pipeline_s": 5.778
+        },
+        "sub_claims": [
+          "Tim Berners-Lee developed the World Wide Web at CERN.",
+          "Tim Berners-Lee created the first web browser at CERN."
+        ]
+      },
+      {
+        "id": "test_sup_07",
+        "claim": "Nelson Mandela and F. W. de Klerk jointly received the 1993 Nobel Peace Prize for their work in ending apartheid.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.9201258420944214,
+        "latencies": {
+          "claim_extractor_s": 1.257,
+          "evidence_retriever_s": 0.015,
+          "cross_verifier_s": 7.484,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.27,
+          "total_pipeline_s": 8.757
+        },
+        "sub_claims": [
+          "Nelson Mandela and F. W. de Klerk jointly received the 1993 Nobel Peace Prize.",
+          "Nelson Mandela and F. W. de Klerk worked in ending apartheid."
+        ]
+      },
+      {
+        "id": "test_sup_08",
+        "claim": "The United States Constitution was signed in September 1787 by delegates meeting at Independence Hall in Philadelphia.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.9103662371635437,
+        "latencies": {
+          "claim_extractor_s": 0.922,
+          "evidence_retriever_s": 0.013,
+          "cross_verifier_s": 6.066,
+          "feature_pooling_s": 0.0007,
+          "verdict_aggregator_ms": 0.43,
+          "total_pipeline_s": 7.002
+        },
+        "sub_claims": [
+          "The United States Constitution was signed in September 1787",
+          "The delegates signed the United States Constitution at Independence Hall in Philadelphia"
+        ]
+      },
+      {
+        "id": "test_sup_09",
+        "claim": "Max Planck introduced the quantum theory of light and received the 1918 Nobel Prize in Physics for his work.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.8551489114761353,
+        "latencies": {
+          "claim_extractor_s": 0.929,
+          "evidence_retriever_s": 0.015,
+          "cross_verifier_s": 6.002,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.26,
+          "total_pipeline_s": 6.947
+        },
+        "sub_claims": [
+          "Max Planck introduced the quantum theory of light.",
+          "Max Planck received the 1918 Nobel Prize in Physics for his work."
+        ]
+      },
+      {
+        "id": "test_sup_10",
+        "claim": "The United Kingdom left the European Union in 2020 following a national referendum held in June 2016.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.8990229964256287,
+        "latencies": {
+          "claim_extractor_s": 1.244,
+          "evidence_retriever_s": 0.017,
+          "cross_verifier_s": 8.276,
+          "feature_pooling_s": 0.0003,
+          "verdict_aggregator_ms": 0.25,
+          "total_pipeline_s": 9.538
+        },
+        "sub_claims": [
+          "The United Kingdom held a national referendum in June 2016.",
+          "The United Kingdom left the European Union in 2020.",
+          "The referendum in June 2016 was held in the United Kingdom."
+        ]
+      },
+      {
+        "id": "test_ref_01",
+        "claim": "Marie Curie was awarded the Nobel Prize in Medicine in 1911 for inventing the mobile X-ray apparatus.",
+        "true_label": "REFUTED",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.5867518186569214,
+        "latencies": {
+          "claim_extractor_s": 0.95,
+          "evidence_retriever_s": 0.014,
+          "cross_verifier_s": 7.009,
+          "feature_pooling_s": 0.0007,
+          "verdict_aggregator_ms": 0.48,
+          "total_pipeline_s": 7.974
+        },
+        "sub_claims": [
+          "Marie Curie was awarded the Nobel Prize in Medicine in 1911.",
+          "Marie Curie invented the mobile X-ray apparatus."
+        ]
+      },
+      {
+        "id": "test_ref_02",
+        "claim": "Apollo 11 successfully landed three astronauts on the surface of the Moon simultaneously.",
+        "true_label": "REFUTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.6854529976844788,
+        "latencies": {
+          "claim_extractor_s": 1.273,
+          "evidence_retriever_s": 0.015,
+          "cross_verifier_s": 9.25,
+          "feature_pooling_s": 0.0006,
+          "verdict_aggregator_ms": 0.42,
+          "total_pipeline_s": 10.539
+        },
+        "sub_claims": [
+          "Apollo 11 successfully landed on the surface of the Moon.",
+          "Apollo 11 landed three astronauts on the surface of the Moon.",
+          "Apollo 11 landed astronauts on the surface of the Moon simultaneously."
+        ]
+      },
+      {
+        "id": "test_ref_03",
+        "claim": "Melbourne was selected as the permanent federal capital city of Australia by parliamentary act in 1908.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.9608763456344604,
+        "latencies": {
+          "claim_extractor_s": 1.539,
+          "evidence_retriever_s": 0.018,
+          "cross_verifier_s": 9.677,
+          "feature_pooling_s": 0.0006,
+          "verdict_aggregator_ms": 0.43,
+          "total_pipeline_s": 11.234
+        },
+        "sub_claims": [
+          "Melbourne was selected as the permanent federal capital city of Australia",
+          "The selection of Melbourne as the permanent federal capital city of Australia occurred by parliamentary act",
+          "The year in which Melbourne was selected as the permanent federal capital city of Australia is 1908"
+        ]
+      },
+      {
+        "id": "test_ref_04",
+        "claim": "Albert Einstein was awarded the 1921 Nobel Prize in Physics for his discovery of gravitational waves.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.7807835936546326,
+        "latencies": {
+          "claim_extractor_s": 0.798,
+          "evidence_retriever_s": 0.014,
+          "cross_verifier_s": 6.053,
+          "feature_pooling_s": 0.0005,
+          "verdict_aggregator_ms": 0.3,
+          "total_pipeline_s": 6.866
+        },
+        "sub_claims": [
+          "Albert Einstein was awarded the 1921 Nobel Prize in Physics.",
+          "Albert Einstein discovered gravitational waves."
+        ]
+      },
+      {
+        "id": "test_ref_05",
+        "claim": "Alexander Fleming discovered penicillin in 1945 at the University of Cambridge.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.9364407062530518,
+        "latencies": {
+          "claim_extractor_s": 0.995,
+          "evidence_retriever_s": 0.018,
+          "cross_verifier_s": 8.133,
+          "feature_pooling_s": 0.0007,
+          "verdict_aggregator_ms": 0.49,
+          "total_pipeline_s": 9.147
+        },
+        "sub_claims": [
+          "Alexander Fleming discovered penicillin.",
+          "Penicillin was discovered in 1945.",
+          "Alexander Fleming worked at the University of Cambridge."
+        ]
+      },
+      {
+        "id": "test_ref_06",
+        "claim": "The United Kingdom was one of the six original countries that signed the Treaty of Rome in 1957.",
+        "true_label": "REFUTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.8239662051200867,
+        "latencies": {
+          "claim_extractor_s": 0.633,
+          "evidence_retriever_s": 0.009,
+          "cross_verifier_s": 4.395,
+          "feature_pooling_s": 0.0006,
+          "verdict_aggregator_ms": 0.39,
+          "total_pipeline_s": 5.038
+        },
+        "sub_claims": [
+          "The United Kingdom signed the Treaty of Rome in 1957."
+        ]
+      },
+      {
+        "id": "test_ref_07",
+        "claim": "The United States Constitution was ratified in London, England before being presented to the Continental Congress.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.9052726030349731,
+        "latencies": {
+          "claim_extractor_s": 1.021,
+          "evidence_retriever_s": 0.011,
+          "cross_verifier_s": 9.933,
+          "feature_pooling_s": 0.0006,
+          "verdict_aggregator_ms": 0.35,
+          "total_pipeline_s": 10.966
+        },
+        "sub_claims": [
+          "The United States Constitution was ratified.",
+          "The United States Constitution was ratified in London, England.",
+          "The United States Constitution was presented to the Continental Congress."
+        ]
+      },
+      {
+        "id": "test_ref_08",
+        "claim": "Apollo 12 was cancelled before launch due to engine malfunctions and never reached lunar orbit.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.7291260957717896,
+        "latencies": {
+          "claim_extractor_s": 0.737,
+          "evidence_retriever_s": 0.013,
+          "cross_verifier_s": 6.573,
+          "feature_pooling_s": 0.0005,
+          "verdict_aggregator_ms": 0.32,
+          "total_pipeline_s": 7.325
+        },
+        "sub_claims": [
+          "Apollo 12 was cancelled before launch.",
+          "Apollo 12 never reached lunar orbit."
+        ]
+      },
+      {
+        "id": "test_ref_09",
+        "claim": "Max Planck won the Nobel Prize in Literature for his philosophical monographs on natural law.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.8861182928085327,
+        "latencies": {
+          "claim_extractor_s": 0.875,
+          "evidence_retriever_s": 0.014,
+          "cross_verifier_s": 5.647,
+          "feature_pooling_s": 0.0003,
+          "verdict_aggregator_ms": 0.25,
+          "total_pipeline_s": 6.537
+        },
+        "sub_claims": [
+          "Max Planck won the Nobel Prize in Literature.",
+          "Max Planck wrote philosophical monographs on natural law."
+        ]
+      },
+      {
+        "id": "test_ref_10",
+        "claim": "Nelson Mandela served as the prime minister of the United Kingdom following his release from prison.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.7695955038070679,
+        "latencies": {
+          "claim_extractor_s": 0.844,
+          "evidence_retriever_s": 0.013,
+          "cross_verifier_s": 6.433,
+          "feature_pooling_s": 0.0005,
+          "verdict_aggregator_ms": 0.32,
+          "total_pipeline_s": 7.291
+        },
+        "sub_claims": [
+          "Nelson Mandela was released from prison.",
+          "Nelson Mandela served as the prime minister of the United Kingdom."
+        ]
+      },
+      {
+        "id": "test_nei_01",
+        "claim": "Marie Curie was an accomplished cellist who performed chamber music in Polish student cultural circles.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.546393632888794,
+        "latencies": {
+          "claim_extractor_s": 0.886,
+          "evidence_retriever_s": 0.011,
+          "cross_verifier_s": 5.812,
+          "feature_pooling_s": 0.0007,
+          "verdict_aggregator_ms": 0.31,
+          "total_pipeline_s": 6.71
+        },
+        "sub_claims": [
+          "Marie Curie was an accomplished cellist.",
+          "Marie Curie performed chamber music in Polish student cultural circles."
+        ]
+      },
+      {
+        "id": "test_nei_02",
+        "claim": "Neil Armstrong carried a fragment of the Wright Brothers' aircraft fabric inside his Apollo 11 spacesuit pocket.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.893750011920929,
+        "latencies": {
+          "claim_extractor_s": 0.799,
+          "evidence_retriever_s": 0.011,
+          "cross_verifier_s": 3.614,
+          "feature_pooling_s": 0.0003,
+          "verdict_aggregator_ms": 0.28,
+          "total_pipeline_s": 4.425
+        },
+        "sub_claims": [
+          "Neil Armstrong carried a fragment of the Wright Brothers' aircraft fabric inside his Apollo 11 spacesuit pocket."
+        ]
+      },
+      {
+        "id": "test_nei_03",
+        "claim": "Alexander Fleming was nominated for the Nobel Prize on five separate occasions before finally winning in 1945.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.7458370327949524,
+        "latencies": {
+          "claim_extractor_s": 0.89,
+          "evidence_retriever_s": 0.014,
+          "cross_verifier_s": 4.853,
+          "feature_pooling_s": 0.0006,
+          "verdict_aggregator_ms": 0.53,
+          "total_pipeline_s": 5.758
+        },
+        "sub_claims": [
+          "Alexander Fleming was nominated for the Nobel Prize on five separate occasions.",
+          "Alexander Fleming won the Nobel Prize in 1945."
+        ]
+      },
+      {
+        "id": "test_nei_04",
+        "claim": "The parliamentary triangle in Canberra was specifically engineered to align with lunar solstices observed in the southern sky.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.8511727452278137,
+        "latencies": {
+          "claim_extractor_s": 0.982,
+          "evidence_retriever_s": 0.016,
+          "cross_verifier_s": 6.328,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.28,
+          "total_pipeline_s": 7.327
+        },
+        "sub_claims": [
+          "The parliamentary triangle in Canberra was specifically engineered.",
+          "The parliamentary triangle in Canberra aligns with lunar solstices observed in the southern sky."
+        ]
+      },
+      {
+        "id": "test_nei_05",
+        "claim": "Albert Einstein frequently played violin duets with quantum physicist Max Planck during their years in Berlin.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.85392165184021,
+        "latencies": {
+          "claim_extractor_s": 0.701,
+          "evidence_retriever_s": 0.012,
+          "cross_verifier_s": 3.599,
+          "feature_pooling_s": 0.0003,
+          "verdict_aggregator_ms": 0.24,
+          "total_pipeline_s": 4.313
+        },
+        "sub_claims": [
+          "Albert Einstein frequently played violin duets with Max Planck during their years in Berlin."
+        ]
+      },
+      {
+        "id": "test_nei_06",
+        "claim": "Tim Berners-Lee initially proposed naming the World Wide Web 'The Information Mesh' before adopting its final title.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.6818499565124512,
+        "latencies": {
+          "claim_extractor_s": 1.098,
+          "evidence_retriever_s": 0.013,
+          "cross_verifier_s": 5.044,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.26,
+          "total_pipeline_s": 6.156
+        },
+        "sub_claims": [
+          "Tim Berners-Lee initially proposed naming the World Wide Web 'The Information Mesh'.",
+          "Tim Berners-Lee adopted the final title of the World Wide Web."
+        ]
+      },
+      {
+        "id": "test_nei_07",
+        "claim": "Nelson Mandela was offered an early conditional pardon by the South African government in 1985 which he formally declined.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.848300576210022,
+        "latencies": {
+          "claim_extractor_s": 1.211,
+          "evidence_retriever_s": 0.017,
+          "cross_verifier_s": 5.978,
+          "feature_pooling_s": 0.0005,
+          "verdict_aggregator_ms": 0.47,
+          "total_pipeline_s": 7.206
+        },
+        "sub_claims": [
+          "Nelson Mandela was offered an early conditional pardon by the South African government in 1985.",
+          "Nelson Mandela formally declined the early conditional pardon offered by the South African government in 1985."
+        ]
+      },
+      {
+        "id": "test_nei_08",
+        "claim": "The inkwell used by George Washington to sign the US Constitution was crafted from solid silver mined in Connecticut.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.9274636507034302,
+        "latencies": {
+          "claim_extractor_s": 0.966,
+          "evidence_retriever_s": 0.125,
+          "cross_verifier_s": 4.609,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.31,
+          "total_pipeline_s": 5.701
+        },
+        "sub_claims": [
+          "The inkwell used by George Washington to sign the US Constitution was crafted from solid silver.",
+          "The inkwell was mined in Connecticut."
+        ]
+      },
+      {
+        "id": "test_nei_09",
+        "claim": "Apollo 12 astronaut Pete Conrad was the shortest astronaut selected in NASA's second astronaut group.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.5466592907905579,
+        "latencies": {
+          "claim_extractor_s": 1.336,
+          "evidence_retriever_s": 0.018,
+          "cross_verifier_s": 7.952,
+          "feature_pooling_s": 0.0005,
+          "verdict_aggregator_ms": 0.32,
+          "total_pipeline_s": 9.307
+        },
+        "sub_claims": [
+          "Pete Conrad was an astronaut selected in NASA's second astronaut group.",
+          "Pete Conrad was an astronaut on the Apollo 12 mission.",
+          "Pete Conrad was the shortest astronaut selected in NASA's second astronaut group."
+        ]
+      },
+      {
+        "id": "test_nei_10",
+        "claim": "Max Planck served as an advisor on astronomical instrumentation for the Kaiser Wilhelm Institute in 1915.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.6897443532943726,
+        "latencies": {
+          "claim_extractor_s": 0.797,
+          "evidence_retriever_s": 0.01,
+          "cross_verifier_s": 3.715,
+          "feature_pooling_s": 0.0004,
+          "verdict_aggregator_ms": 0.32,
+          "total_pipeline_s": 4.523
+        },
+        "sub_claims": [
+          "Max Planck served as an advisor on astronomical instrumentation for the Kaiser Wilhelm Institute in 1915."
+        ]
+      }
+    ]
+  },
+  "liar_benchmark": {
+    "dataset_description": "Curated out-of-domain political statements stress test (6 claims)",
+    "metrics": {
+      "accuracy": 0.8333333333333334,
+      "accuracy_ci_95": [
+        0.4365,
+        0.9699
+      ],
+      "macro_f1": 0.8222222222222223,
+      "macro_precision": 0.8888888888888888,
+      "macro_recall": 0.8333333333333334,
+      "per_class": {
+        "SUPPORTED": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666,
+          "support": 2
+        },
+        "REFUTED": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "NOT ENOUGH INFO": {
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 2
+        }
+      },
+      "confusion_matrix": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "class_names": [
+        "SUPPORTED",
+        "REFUTED",
+        "NOT ENOUGH INFO"
+      ],
+      "total_samples": 6
+    },
+    "sample_details": [
+      {
+        "id": "pol_01",
+        "claim": "The United States established the Federal Reserve System via an Act of Congress in December 1913.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "SUPPORTED",
+        "confidence": 0.9536944031715393,
+        "speaker": "unknown"
+      },
+      {
+        "id": "pol_02",
+        "claim": "Barack Obama was elected as the 44th president of the United States in the 2008 general election.",
+        "true_label": "SUPPORTED",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.7685137391090393,
+        "speaker": "unknown"
+      },
+      {
+        "id": "pol_03",
+        "claim": "The United Kingdom voted to join the European Union in a national referendum held in 2016.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.9803614616394043,
+        "speaker": "unknown"
+      },
+      {
+        "id": "pol_04",
+        "claim": "The United Nations was established in 1845 immediately following the Treaty of Versailles.",
+        "true_label": "REFUTED",
+        "predicted_label": "REFUTED",
+        "confidence": 0.8214511275291443,
+        "speaker": "unknown"
+      },
+      {
+        "id": "pol_05",
+        "claim": "The Federal Reserve's secret vault contains subterranean corridors connecting to the Treasury Department.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.8318355083465576,
+        "speaker": "unknown"
+      },
+      {
+        "id": "pol_06",
+        "claim": "Nelson Mandela attended secret diplomatic summits in Zurich prior to the official 1993 peace accords.",
+        "true_label": "NOT ENOUGH INFO",
+        "predicted_label": "NOT ENOUGH INFO",
+        "confidence": 0.8862646222114563,
+        "speaker": "unknown"
+      }
+    ]
+  },
+  "comparative_baselines": [
+    {
+      "model_architecture": "VeritasAI (Proposed Pipeline)",
+      "novelty": "Stateless Dual-Pass + 227-parameter Trained MLP Head",
+      "fever_accuracy": 0.867,
+      "fever_accuracy_ci_95": [
+        0.7032,
+        0.9469
+      ],
+      "fever_macro_f1": 0.864,
+      "avg_aggregator_latency_ms": 0.34,
+      "total_pipeline_latency_s": 7.48,
+      "vram_allocation": "~4.7 GB (4-bit GGUF backbone via Ollama)",
+      "hallucination_cascade_risk": "Low (Stateless independent passes)",
+      "trainable_parameters": 227,
+      "evaluation_mode": "Empirically measured (n=30)"
+    },
+    {
+      "model_architecture": "Ablation: Simple Threshold Rule (No MLP)",
+      "novelty": "Dual-Pass stances with hard threshold (refute>=0.5 -> REFUTED, else support>=0.5 -> SUPPORTED)",
+      "fever_accuracy": 0.8,
+      "fever_accuracy_ci_95": [
+        0.6269,
+        0.9049
+      ],
+      "fever_macro_f1": 0.8,
+      "avg_aggregator_latency_ms": 0.0,
+      "total_pipeline_latency_s": 7.48,
+      "vram_allocation": "~4.7 GB (Ollama)",
+      "hallucination_cascade_risk": "Low (Stateless passes)",
+      "trainable_parameters": 0,
+      "evaluation_mode": "Empirically measured (n=30)"
+    },
+    {
+      "model_architecture": "Baseline: Multi-Agent + Logistic Regression Head",
+      "novelty": "Linear classification head over standardized 10-D features",
+      "fever_accuracy": 0.833,
+      "fever_accuracy_ci_95": [
+        0.6644,
+        0.9266
+      ],
+      "fever_macro_f1": 0.833,
+      "avg_aggregator_latency_ms": 0.62,
+      "total_pipeline_latency_s": 7.48,
+      "vram_allocation": "~4.7 GB (Ollama)",
+      "hallucination_cascade_risk": "Low (Stateless passes)",
+      "trainable_parameters": 33,
+      "evaluation_mode": "Empirically measured (n=30)"
+    },
+    {
+      "model_architecture": "Baseline: Monolithic Single-Prompt LLM (with Retrieval)",
+      "novelty": "Single-shot prompt to Llama-3.1-8B with top retrieved passage; no sub-claim decomposition",
+      "fever_accuracy": 0.967,
+      "fever_accuracy_ci_95": [
+        0.8333,
+        0.9941
+      ],
+      "fever_macro_f1": 0.967,
+      "avg_aggregator_latency_ms": 0.0,
+      "total_pipeline_latency_s": 1.6,
+      "vram_allocation": "~4.7 GB (Ollama)",
+      "hallucination_cascade_risk": "Low on retrieved facts, but operates as an opaque black box with zero auditable sub-claim attribution",
+      "trainable_parameters": 0,
+      "evaluation_mode": "Empirically measured (n=30)"
+    }
+  ]
+}

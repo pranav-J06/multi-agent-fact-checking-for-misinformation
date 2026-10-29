@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeritasAI | Multi-Agent Fact-Checking Framework</title>
+  <meta name="description" content="Multi-Agent LLM Framework for Fact-Checking and Misinformation Detection featuring Stateless Dual-Pass Verification and Trained MLP Verdict Aggregation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <header class="app-header">
+    <div class="header-inner container">
+      <div class="logo-area">
+        <div class="logo-badge">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="logo-title">VeritasAI <span class="badge-tag">DA1 Research</span></h1>
+          <p class="logo-subtitle">Multi-Agent LLM Framework with Dual-Pass Cross-Verification & Trained Aggregation</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="hardware-pill">
+          <span class="pulse-dot"></span>
+          <span>RTX 4060 (8GB VRAM) • Llama-3.1-8B</span>
+        </div>
+        <div class="authors-pill">
+          <span>Pranav Jahagirdar &bull; Umang Raj</span>
+        </div>
+        <a href="/clean" class="authors-pill" style="text-decoration:none; background:rgba(59,130,246,0.15); border-color:rgba(59,130,246,0.4); color:#60a5fa; cursor:pointer;" title="Switch to Clean UI">
+          <span>Clean UI &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-tabs container">
+    <button class="tab-btn active" id="tab-btn-verify" onclick="switchTab('verify')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      Live Fact-Checking
+    </button>
+    <button class="tab-btn" id="tab-btn-arch" onclick="switchTab('arch')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Architecture & Tensors
+    </button>
+    <button class="tab-btn" id="tab-btn-benchmarks" onclick="switchTab('benchmarks')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+      Evaluation & Baselines
+    </button>
+    <button class="tab-btn" id="tab-btn-paper" onclick="switchTab('paper')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      Research Gaps & Design
+    </button>
+  </nav>
+
+  <main class="container main-content">
+    <!-- ============================================================ -->
+    <!-- TAB 1: LIVE FACT-CHECKING STUDIO -->
+    <!-- ============================================================ -->
+    <section id="tab-verify" class="tab-pane active">
+      <!-- Claim Input Card -->
+      <div class="card search-card">
+        <label for="claim-input" class="search-label">Input Claim Statement for Multi-Agent Verification</label>
+        <div class="input-wrapper">
+          <textarea id="claim-input" class="claim-textarea" rows="2" placeholder="e.g. Marie Curie was the first woman to win a Nobel Prize and also won prizes in two distinct scientific fields."></textarea>
+          <div class="input-actions">
+            <button id="btn-verify" class="btn btn-primary" onclick="handleVerify()">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <span>Verify Claim</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Preset Chips -->
+        <div class="sample-chips-area">
+          <span class="chips-label">Quick Test Presets:</span>
+          <div class="chips-container" id="sample-chips">
+            <button class="chip chip-supported" onclick="loadPreset('Marie Curie was the first woman to win a Nobel Prize and also won prizes in two distinct scientific fields.')">
+              <span class="dot dot-sup"></span> Marie Curie (Supported)
+            </button>
+            <button class="chip chip-refuted" onclick="loadPreset('Marie Curie won the Nobel Prize in Literature in 1911.')">
+              <span class="dot dot-ref"></span> Literature Prize (Refuted)
+            </button>
+            <button class="chip chip-refuted" onclick="loadPreset('Sydney is the official capital city of Australia.')">
+              <span class="dot dot-ref"></span> Sydney Capital (Refuted)
+            </button>
+            <button class="chip chip-nei" onclick="loadPreset('Marie Curie was an accomplished violinist who played classical sonatas every Sunday afternoon.')">
+              <span class="dot dot-nei"></span> Violinist Trivia (NEI)
+            </button>
+            <button class="chip chip-liar" onclick="loadPreset('Barack Obama was elected as the 44th president of the United States in the 2008 general election.')">
+              <span class="dot dot-liar"></span> Obama 44th (LIAR)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Execution Progress Stepper (Animated) -->
+      <div id="pipeline-stepper" class="stepper-card card hidden">
+        <div class="stepper-header">
+          <span class="stepper-title">Executing Multi-Agent Pipeline Trace</span>
+          <span id="stepper-status" class="stepper-status">Initializing...</span>
+        </div>
+        <div class="steps-track">
+          <div class="step-item" id="step-1">
+            <div class="step-circle">1</div>
+            <div class="step-name">Input Claim</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-2">
+            <div class="step-circle">2</div>
+            <div class="step-name">Claim Extractor</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-3">
+            <div class="step-circle">3</div>
+            <div class="step-name">FAISS Retrieval</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-4">
+            <div class="step-circle">4</div>
+            <div class="step-name">Dual-Pass Verifier</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-5">
+            <div class="step-circle">5</div>
+            <div class="step-name">Feature Pooling</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" id="step-6">
+            <div class="step-circle">6</div>
+            <div class="step-name">MLP Aggregator</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Display Container -->
+      <div id="results-container" class="results-layout hidden">
+        <!-- Main Verdict Banner -->
+        <div id="verdict-banner" class="verdict-banner">
+          <div class="verdict-main">
+            <div class="verdict-badge-box">
+              <span class="verdict-label-small">FINAL VERDICT</span>
+              <h2 id="verdict-title" class="verdict-title">SUPPORTED</h2>
+              <div class="confidence-tag">Confidence: <span id="verdict-conf">99.8%</span></div>
+            </div>
+            <p id="verdict-explanation" class="verdict-desc">
+              The claim is supported by verified documentary evidence across all decomposed atomic sub-claims.
+            </p>
+            <div id="real-fact-box" class="real-fact-box">
+              <div class="real-fact-header">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="real-fact-tag">VERIFIED REAL FACT</span>
+              </div>
+              <p id="verdict-real-fact" class="real-fact-text">
+                Denis Villeneuve directed the 2021 science fiction film Dune.
+              </p>
+            </div>
+          </div>
+
+          <div class="verdict-timing">
+            <div class="timing-stat highlight-stat">
+              <span class="timing-label">Verdict Aggregator Head</span>
+              <span id="time-aggregator" class="timing-val">0.59 ms</span>
+              <span class="timing-sub">vs 15-30s LLM Judge</span>
+            </div>
+            <div class="timing-stat">
+              <span class="timing-label">Total Pipeline</span>
+              <span id="time-total" class="timing-val">8.42 s</span>
+              <span class="timing-sub">Sequential Llama-3.1-8B</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Class Probabilities & Stage Latency Grid -->
+        <div class="grid-2-col">
+          <!-- Probability Distribution -->
+          <div class="card info-card">
+            <h3 class="card-title">Verdict Probability Distribution [1, 3]</h3>
+            <p class="card-subtitle">Output of trained Dense(16, 3, Softmax) classification head</p>
+            <div class="prob-bars-list">
+              <div class="prob-row">
+                <span class="prob-name">SUPPORTED</span>
+                <div class="prob-track">
+                  <div id="bar-sup" class="prob-fill fill-sup" style="width: 0%"></div>
+                </div>
+                <span id="val-sup" class="prob-num">0.0%</span>
+              </div>
+              <div class="prob-row">
+                <span class="prob-name">REFUTED</span>
+                <div class="prob-track">
+                  <div id="bar-ref" class="prob-fill fill-ref" style="width: 0%"></div>
+                </div>
+                <span id="val-ref" class="prob-num">0.0%</span>
+              </div>
+              <div class="prob-row">
+                <span class="prob-name">NOT ENOUGH INFO</span>
+                <div class="prob-track">
+                  <div id="bar-nei" class="prob-fill fill-nei" style="width: 0%"></div>
+                </div>
+                <span id="val-nei" class="prob-num">0.0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Latency Breakdown -->
+          <div class="card info-card">
+            <h3 class="card-title">Per-Stage Execution Latencies</h3>
+            <p class="card-subtitle">Quantized backbone reuse & CPU-side vector search</p>
+            <div class="latency-list">
+              <div class="latency-row">
+                <span>1. Claim Extractor Agent</span>
+                <span id="lat-ext" class="mono-val">0.0s</span>
+              </div>
+              <div class="latency-row">
+                <span>2. Evidence Retriever (FAISS)</span>
+                <span id="lat-ret" class="mono-val">0.0s</span>
+              </div>
+              <div class="latency-row">
+                <span>3. Cross-Verifier Dual-Pass</span>
+                <span id="lat-ver" class="mono-val">0.0s</span>
+              </div>
+              <div class="latency-row">
+                <span>4. Feature Pooling (10-D)</span>
+                <span id="lat-pool" class="mono-val">0.0s</span>
+              </div>
+              <div class="latency-row row-highlight">
+                <span>5. Verdict Aggregator MLP Head</span>
+                <span id="lat-agg" class="mono-val text-accent">0.0ms</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10-D Feature Vector Inspector -->
+        <div class="card">
+          <div class="section-header-row">
+            <div>
+              <h3 class="card-title">10-Dimensional Engineered Feature Tensor [1, 10]</h3>
+              <p class="card-subtitle">Pooled agent stances and retrieval confidence fed into the trained MLP head</p>
+            </div>
+            <span class="tensor-shape-tag">Tensor: float32[1, 10]</span>
+          </div>
+          <div class="features-grid" id="feature-tensor-grid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Atomic Sub-claims & Dual-Pass Analysis -->
+        <div class="card">
+          <h3 class="card-title">Atomic Sub-Claims & Dual-Pass Verification Breakdown</h3>
+          <p class="card-subtitle">
+            Pass A (Support stance) and Pass B (Refute stance) executed independently over Llama-3.1-8B with zero shared history
+          </p>
+          <div id="subclaims-container" class="subclaims-list">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: SYSTEM ARCHITECTURE & TENSORS -->
+    <!-- ============================================================ -->
+    <section id="tab-arch" class="tab-pane">
+      <div class="card">
+        <h2 class="card-title">Proposed Architecture & Tensor Flow Specification</h2>
+        <p class="card-subtitle">As documented in the DA1 literature review and system architecture (Figs. 1 & 2)</p>
+
+        <!-- Diagram Gallery -->
+        <div class="diagram-grid">
+          <div class="diagram-card">
+            <h4>Fig. 1 — Complete System Pipeline</h4>
+            <div class="img-frame">
+              <img src="/static/images/fig1_pipeline_diagram.png" alt="Fig. 1 Complete Pipeline" class="arch-img">
+            </div>
+            <p class="diagram-caption">Six pipeline stages: Data Acquisition, Preprocessing, Model, Post-Processing (MLP novelty), Evaluation, and Interface.</p>
+          </div>
+          <div class="diagram-card">
+            <h4>Fig. 2 — Detailed Model & Tensor Shapes</h4>
+            <div class="img-frame">
+              <img src="/static/images/fig2_module_diagram.png" alt="Fig. 2 Model & Tensor Shapes" class="arch-img">
+            </div>
+            <p class="diagram-caption">Layer-level model diagram highlighting tensor transformations and the 227-parameter (208 weights + 19 biases) trained verdict aggregator head.</p>
+          </div>
+        </div>
+
+        <!-- Tensor Specifications Table -->
+        <h3 class="sub-heading">Module-by-Module Tensor Transformations</h3>
+        <div class="table-responsive">
+          <table class="arch-table">
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>Module / Agent</th>
+                <th>Backbone / Technology</th>
+                <th>Input Tensor / Data</th>
+                <th>Output Tensor / Data</th>
+                <th>Hardware Device</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. Extraction</td>
+                <td>Claim Extractor Agent</td>
+                <td>Llama-3.1-8B-Instruct (4-bit GGUF)</td>
+                <td><code>[1, L] (L &le; 128)</code></td>
+                <td><code>[N, L_sub] (N: 2-6)</code></td>
+                <td>GPU (RTX 4060 VRAM)</td>
+              </tr>
+              <tr>
+                <td>2. Retrieval</td>
+                <td>Evidence Retriever Agent</td>
+                <td>all-MiniLM-L6-v2 + FAISS IndexFlatIP</td>
+                <td><code>[N, 384]</code> dense vectors</td>
+                <td><code>[N, k=5, L_evid]</code> (scores)</td>
+                <td>CPU-side (0% VRAM)</td>
+              </tr>
+              <tr>
+                <td>3. Verification</td>
+                <td>Cross-Verifier Agent (Dual-Pass)</td>
+                <td>Llama-3.1-8B-Instruct (reused)</td>
+                <td><code>[N, L_ctx] (L_ctx &le; 512)</code></td>
+                <td>Stance Tensor <code>[N, 2]</code></td>
+                <td>GPU (Sequential reuse)</td>
+              </tr>
+              <tr>
+                <td>4. Pooling</td>
+                <td>Feature Pooling Engine</td>
+                <td>Statistical aggregation & normalization</td>
+                <td>Stance <code>[N, 2]</code> + Ret <code>[N, 1]</code></td>
+                <td>Feature Vector <code>[1, 10]</code></td>
+                <td>CPU (<1ms)</td>
+              </tr>
+              <tr>
+                <td>5. Aggregation</td>
+                <td><strong>Verdict Aggregator Head &star;</strong></td>
+                <td>Dense(10, 16, ReLU) &rarr; Dense(16, 3)</td>
+                <td><code>[1, 10]</code> engineered features</td>
+                <td>Class Probs <code>[1, 3]</code></td>
+                <td>CPU / GPU (<50ms budget)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: BENCHMARK & LATENCY EVALUATION -->
+    <!-- ============================================================ -->
+    <section id="tab-benchmarks" class="tab-pane">
+      <!-- Benchmark Highlights -->
+      <div class="metrics-summary-grid">
+        <div class="metric-box">
+          <span class="metric-label">FEVER Test Accuracy</span>
+          <span class="metric-value text-accent" id="bench-fever-acc">86.7%</span>
+          <span class="metric-sub">Empirically measured (n=30)</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-label">FEVER Macro F1</span>
+          <span class="metric-value text-accent" id="bench-fever-f1">0.864</span>
+          <span class="metric-sub">Balanced harmonic score</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-label">Aggregator Latency</span>
+          <span class="metric-value text-success" id="bench-agg-latency">0.34 ms</span>
+          <span class="metric-sub">&lt;50ms hard limit met</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-label">Latency Reduction</span>
+          <span class="metric-value text-success">99.98%</span>
+          <span class="metric-sub">vs ~14.2s LLM Judge</span>
+        </div>
+      </div>
+
+      <!-- Comparative Baseline Analysis Table -->
+      <div class="card">
+        <h3 class="card-title">Comparative Architecture Benchmark Table</h3>
+        <p class="card-subtitle">Proposed multi-agent system evaluated against published literature baselines (MADR, MAD-Fact, Monolithic LLM)</p>
+        <div class="table-responsive">
+          <table class="arch-table">
+            <thead>
+              <tr>
+                <th>Model / Framework</th>
+                <th>Architectural Paradigm</th>
+                <th>FEVER Acc</th>
+                <th>Macro F1</th>
+                <th>Judge / Aggregator Latency</th>
+                <th>Hallucination Drift Risk</th>
+                <th>Trainable Params</th>
+              </tr>
+            </thead>
+            <tbody id="baseline-table-body">
+              <!-- Dynamically populated from /api/benchmarks -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Confusion Matrix & Cross-Domain LIAR -->
+      <div class="grid-2-col">
+        <div class="card">
+          <h3 class="card-title">FEVER Confusion Matrix (3-Class)</h3>
+          <p class="card-subtitle">Ground Truth (rows) vs Predicted (columns)</p>
+          <div class="cm-table-wrapper">
+            <table class="cm-table">
+              <thead>
+                <tr>
+                  <th>Actual \ Pred</th>
+                  <th>SUPPORTED</th>
+                  <th>REFUTED</th>
+                  <th>NOT ENOUGH INFO</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>SUPPORTED</strong></td>
+                  <td class="cm-cell cm-diag">10</td>
+                  <td class="cm-cell">0</td>
+                  <td class="cm-cell">0</td>
+                </tr>
+                <tr>
+                  <td><strong>REFUTED</strong></td>
+                  <td class="cm-cell">2</td>
+                  <td class="cm-cell cm-diag">7</td>
+                  <td class="cm-cell">1</td>
+                </tr>
+                <tr>
+                  <td><strong>NOT ENOUGH INFO</strong></td>
+                  <td class="cm-cell">1</td>
+                  <td class="cm-cell">0</td>
+                  <td class="cm-cell cm-diag">9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Cross-Domain Political Stress Test (Author-Curated)</h3>
+          <p class="card-subtitle">Generalization on author-curated political statements (n=6)</p>
+          <div class="liar-summary">
+            <div class="liar-stat">
+              <span class="liar-label">Political Test Accuracy</span>
+              <span class="liar-val" id="bench-political-acc">83.3%</span>
+            </div>
+            <div class="liar-stat">
+              <span class="liar-label">Political Macro F1</span>
+              <span class="liar-val" id="bench-political-f1">0.822</span>
+            </div>
+            <p class="liar-note">
+              Evaluated on an author-curated 6-claim political rhetoric stress test. High stance variance (&sigma; &gt; 0.35) and low agreement ratio (&lt; 0.1) act as an intrinsic uncertainty detector on complex, out-of-domain political claims.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 4: RESEARCH GAPS & PAPER CONTEXT -->
+    <!-- ============================================================ -->
+    <section id="tab-paper" class="tab-pane">
+      <div class="card">
+        <h2 class="card-title">Research Gaps & System Design Mapping</h2>
+        <p class="card-subtitle">
+          Based on <em>"Multi-Agent LLM Frameworks for Fact-Checking and Misinformation Detection: A Comprehensive Literature Review"</em> (Pranav Jahagirdar & Umang Raj)
+        </p>
+
+        <div class="gaps-container">
+          <div class="gap-card">
+            <div class="gap-header">
+              <span class="gap-num">Gap 1</span>
+              <h4>Inference Latency & Computational Overhead</h4>
+            </div>
+            <p class="gap-issue"><strong>Literature Problem:</strong> Prior multi-agent debate frameworks (MADR, MAD-Fact, FACT-AUDIT) require multi-turn dialogues and an additional LLM "Judge" generation round-trip, taking 10&ndash;30 seconds per claim.</p>
+            <p class="gap-solution"><strong>Our Design Resolution:</strong> Instead of an LLM Judge, we replace the final verdict step with a small trained 2-layer MLP head (227 trainable parameters: 208 weights + 19 biases). Decision time drops to <strong>&lt;1ms</strong> (&lt;50ms hard budget) while maintaining high accuracy.</p>
+          </div>
+
+          <div class="gap-card">
+            <div class="gap-header">
+              <span class="gap-num">Gap 2</span>
+              <h4>Static & Fragile Search Query Generation</h4>
+            </div>
+            <p class="gap-issue"><strong>Literature Problem:</strong> FacTool and HiSS convert compound claims into single-pass search queries, causing shallow retrievals on interdependent multi-hop claims.</p>
+            <p class="gap-solution"><strong>Our Design Resolution:</strong> The Claim Extractor Agent decomposes complex input claims into 2&ndash;6 atomic sub-claims, executing individual dense queries per sub-claim and carrying retrieval confidence forward as an engineered feature.</p>
+          </div>
+
+          <div class="gap-card">
+            <div class="gap-header">
+              <span class="gap-num">Gap 3</span>
+              <h4>Cognitive Shortcuts & Communication Hallucinations</h4>
+            </div>
+            <p class="gap-issue"><strong>Literature Problem:</strong> In conversational debate setups, agents observe prior dialogue, leading to mutual persuasion, early hallucination cascades, and premature convergence.</p>
+            <p class="gap-solution"><strong>Our Design Resolution:</strong> The Cross-Verifier runs two stateless, independent passes (Pass A Support, Pass B Refute) over the same backbone with zero shared history. Stances are pooled statistically (agreement ratio, mean, max, std).</p>
+          </div>
+
+          <div class="gap-card">
+            <div class="gap-header">
+              <span class="gap-num">Gap 4</span>
+              <h4>Hardware Budget Optimization (Single RTX 4060 GPU)</h4>
+            </div>
+            <p class="gap-issue"><strong>Constraint:</strong> Multi-agent systems often instantiate 3&ndash;5 distinct LLMs simultaneously, requiring multiple enterprise GPUs (A100/H100) and &gt;40GB VRAM.</p>
+            <p class="gap-solution"><strong>Our Design Resolution:</strong> A single quantized Llama-3.1-8B-Instruct (4-bit GGUF via Ollama) backbone is reused sequentially for extraction and verification. FAISS evidence retrieval runs CPU-side, keeping total VRAM usage under 5.0 GB.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer container">
+    <p>VeritasAI Framework &bull; Course BCSE409L Natural Language Processing (DA1) &bull; VIT Chennai</p>
+    <p class="footer-sub">Developed by Pranav Jahagirdar (24BCE1503) & Umang Raj (24BCE1470)</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

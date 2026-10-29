@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pol_01",
+    "claim": "The United States established the Federal Reserve System via an Act of Congress in December 1913.",
+    "label": "SUPPORTED",
+    "category": "Political Economy"
+  },
+  {
+    "id": "pol_02",
+    "claim": "Barack Obama was elected as the 44th president of the United States in the 2008 general election.",
+    "label": "SUPPORTED",
+    "category": "US Politics"
+  },
+  {
+    "id": "pol_03",
+    "claim": "The United Kingdom voted to join the European Union in a national referendum held in 2016.",
+    "label": "REFUTED",
+    "category": "European Politics"
+  },
+  {
+    "id": "pol_04",
+    "claim": "The United Nations was established in 1845 immediately following the Treaty of Versailles.",
+    "label": "REFUTED",
+    "category": "International Affairs"
+  },
+  {
+    "id": "pol_05",
+    "claim": "The Federal Reserve's secret vault contains subterranean corridors connecting to the Treasury Department.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Political Rumor"
+  },
+  {
+    "id": "pol_06",
+    "claim": "Nelson Mandela attended secret diplomatic summits in Zurich prior to the official 1993 peace accords.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Diplomacy"
+  }
+]

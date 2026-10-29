@@ -1,0 +1,29 @@
+# Environment & Secrets
+.env
+*.env
+!.env.example
+
+# Python Caches & Build Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env/
+
+# Scratch & Temporary Testing Scripts
+scratch/
+scratch_*.py
+scratch_*.json
+*.tmp
+*.zip

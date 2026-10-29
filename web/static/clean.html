@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeritasAI | Fact Verification</title>
+  <meta name="description" content="Automated multi-agent fact verification, claim decomposition, and evidence cross-verification.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/clean_styles.css">
+</head>
+<body>
+
+  <!-- Minimal Top Header -->
+  <header class="app-header">
+    <div class="header-inner container">
+      <div class="logo-area">
+        <div class="logo-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="logo-title">VeritasAI</h1>
+          <p class="logo-subtitle">Automated Fact Verification</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container main-content">
+
+    <!-- Type Claim Card -->
+    <section class="card search-card">
+      <div class="search-header">
+        <label for="claim-input" class="search-label">Type a claim to verify:</label>
+        <span class="char-hint">Ctrl + Enter to verify</span>
+      </div>
+
+      <div class="input-container">
+        <textarea 
+          id="claim-input" 
+          class="claim-textarea" 
+          rows="3" 
+          placeholder="e.g. Marie Curie was the first woman to win a Nobel Prize and also won prizes in two distinct scientific fields."></textarea>
+      </div>
+
+      <div class="input-action-bar">
+        <button id="btn-clear" class="btn btn-ghost" onclick="handleClear()" type="button">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span>Clear</span>
+        </button>
+        <button id="btn-verify" class="btn btn-primary" onclick="handleVerify()" type="button">
+          <svg id="verify-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span id="btn-verify-text">Verify Claim</span>
+        </button>
+      </div>
+
+      <!-- Quick Preset Tests -->
+      <div class="preset-section">
+        <div class="preset-title-row">
+          <span class="preset-title">Sample Claims:</span>
+        </div>
+        <div class="preset-chips" id="sample-chips">
+          <button class="chip" onclick="loadPreset('Marie Curie was the first woman to win a Nobel Prize and also won prizes in two distinct scientific fields.')">
+            <span class="chip-dot dot-sup"></span>
+            <span>Marie Curie (Supported)</span>
+          </button>
+          <button class="chip" onclick="loadPreset('Marie Curie won the Nobel Prize in Literature in 1911.')">
+            <span class="chip-dot dot-ref"></span>
+            <span>Literature Prize (Refuted)</span>
+          </button>
+          <button class="chip" onclick="loadPreset('Sydney is the official capital city of Australia.')">
+            <span class="chip-dot dot-ref"></span>
+            <span>Sydney Capital (Refuted)</span>
+          </button>
+          <button class="chip" onclick="loadPreset('Marie Curie was an accomplished violinist who played classical sonatas every Sunday afternoon.')">
+            <span class="chip-dot dot-nei"></span>
+            <span>Violinist Trivia (Not Enough Info)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verification Loading Indicator -->
+    <div id="loading-indicator" class="loading-bar-card hidden">
+      <div class="loading-spinner"></div>
+      <span id="loading-status-text" class="loading-text">Verifying claim across evidence...</span>
+    </div>
+
+    <!-- Results Display Container -->
+    <div id="results-container" class="results-wrapper hidden">
+      
+      <!-- Main Verdict Banner (No numeric values/percentages/latencies) -->
+      <section id="verdict-banner" class="verdict-banner">
+        <div class="verdict-banner-inner">
+          <div class="verdict-main-col">
+            <div class="verdict-badge-row">
+              <span class="verdict-tag">Verification Outcome</span>
+            </div>
+
+            <h2 id="verdict-title" class="verdict-heading">SUPPORTED</h2>
+
+            <p id="verdict-explanation" class="verdict-explanation-text">
+              The claim is supported by verified documentary evidence across all decomposed atomic sub-claims.
+            </p>
+
+            <!-- Verified Real Fact Box -->
+            <div id="real-fact-box" class="real-fact-card">
+              <div class="real-fact-badge">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+                <span>Verified Fact</span>
+              </div>
+              <p id="verdict-real-fact" class="real-fact-content"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Decomposed Atomic Sub-Claims Section -->
+      <section class="card">
+        <h3 class="card-title">Atomic Sub-Claims</h3>
+        <p class="card-subtitle">
+          Independent assertions decomposed from the claim and verified against reference evidence
+        </p>
+        <div id="subclaims-container" class="subclaims-stack">
+          <!-- Populated dynamically via clean_app.js -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Clean Footer -->
+  <footer class="app-footer">
+    <div class="container">
+      <p class="footer-text">VeritasAI &bull; Automated Fact Verification Engine</p>
+    </div>
+  </footer>
+
+  <script src="/static/clean_app.js"></script>
+</body>
+</html>

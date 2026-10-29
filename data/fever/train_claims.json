@@ -1,0 +1,362 @@
+[
+  {
+    "id": "tr_sup_01",
+    "claim": "Marie Curie was the first woman to win a Nobel Prize and the first person to win Nobel Prizes in two different scientific fields.",
+    "label": "SUPPORTED",
+    "category": "Science"
+  },
+  {
+    "id": "tr_sup_02",
+    "claim": "Neil Armstrong and Buzz Aldrin landed the Apollo 11 lunar module Eagle on the Moon in July 1969.",
+    "label": "SUPPORTED",
+    "category": "Space"
+  },
+  {
+    "id": "tr_sup_03",
+    "claim": "Alexander Fleming discovered penicillin in September 1928 at St. Mary's Hospital in London.",
+    "label": "SUPPORTED",
+    "category": "Medicine"
+  },
+  {
+    "id": "tr_sup_04",
+    "claim": "Canberra was chosen as the capital city of Australia in 1908 as a compromise between Sydney and Melbourne.",
+    "label": "SUPPORTED",
+    "category": "Geography"
+  },
+  {
+    "id": "tr_sup_05",
+    "claim": "Albert Einstein received the 1921 Nobel Prize in Physics for his discovery of the law of the photoelectric effect.",
+    "label": "SUPPORTED",
+    "category": "Physics"
+  },
+  {
+    "id": "tr_sup_06",
+    "claim": "Tim Berners-Lee invented the World Wide Web in 1989 while employed at CERN in Switzerland.",
+    "label": "SUPPORTED",
+    "category": "Technology"
+  },
+  {
+    "id": "tr_sup_07",
+    "claim": "Nelson Mandela served as the first president of post-apartheid South Africa from 1994 to 1999.",
+    "label": "SUPPORTED",
+    "category": "Politics"
+  },
+  {
+    "id": "tr_sup_08",
+    "claim": "The United States Constitution was drafted and signed at Independence Hall in Philadelphia in September 1787.",
+    "label": "SUPPORTED",
+    "category": "History"
+  },
+  {
+    "id": "tr_sup_09",
+    "claim": "Max Planck won the 1918 Nobel Prize in Physics in recognition of his discovery of energy quanta.",
+    "label": "SUPPORTED",
+    "category": "Physics"
+  },
+  {
+    "id": "tr_sup_10",
+    "claim": "The Treaty of Rome was signed in 1957, establishing the European Economic Community among six founding nations.",
+    "label": "SUPPORTED",
+    "category": "History"
+  },
+  {
+    "id": "tr_sup_11",
+    "claim": "Apollo 12 achieved a precision landing in the Ocean of Storms in November 1969, guided by Pete Conrad and Alan Bean.",
+    "label": "SUPPORTED",
+    "category": "Space"
+  },
+  {
+    "id": "tr_sup_12",
+    "claim": "Alan Turing designed the electromechanical Bombe machine at Bletchley Park to decipher German Enigma ciphers during World War II.",
+    "label": "SUPPORTED",
+    "category": "Computing"
+  },
+  {
+    "id": "tr_sup_13",
+    "claim": "The United Nations Charter was signed in San Francisco in June 1945 following the conclusion of World War II.",
+    "label": "SUPPORTED",
+    "category": "Politics"
+  },
+  {
+    "id": "tr_sup_14",
+    "claim": "James Watson and Francis Crick proposed the double-helix structure of DNA in 1953 at the University of Cambridge.",
+    "label": "SUPPORTED",
+    "category": "Biology"
+  },
+  {
+    "id": "tr_sup_15",
+    "claim": "Howard Florey and Ernst Boris Chain developed methods for the mass production of penicillin in Oxford in 1940.",
+    "label": "SUPPORTED",
+    "category": "Medicine"
+  },
+  {
+    "id": "tr_sup_16",
+    "claim": "Guido van Rossum released the first version of the Python programming language in 1991.",
+    "label": "SUPPORTED",
+    "category": "Computing"
+  },
+  {
+    "id": "tr_sup_17",
+    "claim": "The Federal Reserve System was created in 1913 when President Woodrow Wilson signed the Federal Reserve Act.",
+    "label": "SUPPORTED",
+    "category": "Finance"
+  },
+  {
+    "id": "tr_sup_18",
+    "claim": "Linus Torvalds released the initial Linux kernel in 1991 as a free and open-source operating system core.",
+    "label": "SUPPORTED",
+    "category": "Computing"
+  },
+  {
+    "id": "tr_sup_19",
+    "claim": "The United Kingdom officially entered the European Communities on January 1, 1973 alongside Denmark and Ireland.",
+    "label": "SUPPORTED",
+    "category": "History"
+  },
+  {
+    "id": "tr_sup_20",
+    "claim": "Pierre Curie shared the 1903 Nobel Prize in Physics with Marie Curie and Henri Becquerel.",
+    "label": "SUPPORTED",
+    "category": "Physics"
+  },
+  {
+    "id": "tr_ref_01",
+    "claim": "Marie Curie won the 1911 Nobel Prize in Literature for her scientific autobiographies.",
+    "label": "REFUTED",
+    "category": "Science"
+  },
+  {
+    "id": "tr_ref_02",
+    "claim": "Michael Collins walked on the Moon alongside Neil Armstrong during the Apollo 11 lunar EVA.",
+    "label": "REFUTED",
+    "category": "Space"
+  },
+  {
+    "id": "tr_ref_03",
+    "claim": "Sydney is the constitutionally designated federal capital city of the Commonwealth of Australia.",
+    "label": "REFUTED",
+    "category": "Geography"
+  },
+  {
+    "id": "tr_ref_04",
+    "claim": "Albert Einstein was awarded the 1921 Nobel Prize in Physics for his formulation of the general theory of relativity.",
+    "label": "REFUTED",
+    "category": "Physics"
+  },
+  {
+    "id": "tr_ref_05",
+    "claim": "Penicillin is an antiviral drug discovered by Louis Pasteur in Paris to cure influenza outbreaks.",
+    "label": "REFUTED",
+    "category": "Medicine"
+  },
+  {
+    "id": "tr_ref_06",
+    "claim": "The United Kingdom remained a full member of the European Union throughout the entirety of 2022.",
+    "label": "REFUTED",
+    "category": "Politics"
+  },
+  {
+    "id": "tr_ref_07",
+    "claim": "The United States Constitution was drafted and signed at the Capitol building in Washington, D.C.",
+    "label": "REFUTED",
+    "category": "History"
+  },
+  {
+    "id": "tr_ref_08",
+    "claim": "Apollo 12 suffered an in-flight oxygen tank explosion and failed to achieve a lunar surface landing.",
+    "label": "REFUTED",
+    "category": "Space"
+  },
+  {
+    "id": "tr_ref_09",
+    "claim": "The Treaty of Rome was signed in 1992 in the Netherlands to formally create the European Union single currency.",
+    "label": "REFUTED",
+    "category": "History"
+  },
+  {
+    "id": "tr_ref_10",
+    "claim": "Alexander Fleming received the 1945 Nobel Prize in Medicine entirely as a sole laureate without co-recipients.",
+    "label": "REFUTED",
+    "category": "Medicine"
+  },
+  {
+    "id": "tr_ref_11",
+    "claim": "Tim Berners-Lee developed the World Wide Web while employed as a software engineer at Bell Labs in New Jersey.",
+    "label": "REFUTED",
+    "category": "Technology"
+  },
+  {
+    "id": "tr_ref_12",
+    "claim": "Alan Turing built the ACE computer and deployed it operationally before the end of 1944.",
+    "label": "REFUTED",
+    "category": "Computing"
+  },
+  {
+    "id": "tr_ref_13",
+    "claim": "The League of Nations was founded in San Francisco in 1945 immediately after World War II.",
+    "label": "REFUTED",
+    "category": "Politics"
+  },
+  {
+    "id": "tr_ref_14",
+    "claim": "The double-helix molecular structure of DNA was discovered in 1920 by Gregor Mendel.",
+    "label": "REFUTED",
+    "category": "Biology"
+  },
+  {
+    "id": "tr_ref_15",
+    "claim": "The Federal Reserve was established in 1865 during the American Civil War by Abraham Lincoln.",
+    "label": "REFUTED",
+    "category": "Finance"
+  },
+  {
+    "id": "tr_ref_16",
+    "claim": "Max Planck won the Nobel Prize in Chemistry for synthesizing artificial radioactive isotopes.",
+    "label": "REFUTED",
+    "category": "Physics"
+  },
+  {
+    "id": "tr_ref_17",
+    "claim": "The first ARPANET message transmission occurred between Stanford University and Harvard University in 1985.",
+    "label": "REFUTED",
+    "category": "Technology"
+  },
+  {
+    "id": "tr_ref_18",
+    "claim": "Nelson Mandela was awarded the Nobel Peace Prize in 1980 for establishing the African National Congress.",
+    "label": "REFUTED",
+    "category": "Politics"
+  },
+  {
+    "id": "tr_ref_19",
+    "claim": "Linus Torvalds created the Linux kernel while working as a computer science professor at MIT.",
+    "label": "REFUTED",
+    "category": "Computing"
+  },
+  {
+    "id": "tr_ref_20",
+    "claim": "The United Kingdom joined the European Economic Community in 1957 as one of its six original founding signatories.",
+    "label": "REFUTED",
+    "category": "History"
+  },
+  {
+    "id": "tr_nei_01",
+    "claim": "Marie Curie was initially rejected by the University of Paris due to insufficient tuition payment records.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Biography"
+  },
+  {
+    "id": "tr_nei_02",
+    "claim": "Neil Armstrong listened to cassette recordings of classical orchestral music during the translunar coast of Apollo 11.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Space"
+  },
+  {
+    "id": "tr_nei_03",
+    "claim": "Alexander Fleming initially attempted to extract antibacterial compounds using specialized cold-pressed citrus oils.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Medicine"
+  },
+  {
+    "id": "tr_nei_04",
+    "claim": "The architects designing Canberra based its arterial road grid on the historical street plans of Florence, Italy.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Geography"
+  },
+  {
+    "id": "tr_nei_05",
+    "claim": "Albert Einstein used his early patent office salary to finance his private study of theoretical electrodynamics.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Physics"
+  },
+  {
+    "id": "tr_nei_06",
+    "claim": "Tim Berners-Lee wrote the first hyper-text markup specification using a second-hand British typewriter in Geneva.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Technology"
+  },
+  {
+    "id": "tr_nei_07",
+    "claim": "Nelson Mandela completed his correspondence degree in law while working in the prison quarry at Robben Island.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Politics"
+  },
+  {
+    "id": "tr_nei_08",
+    "claim": "The delegates signing the US Constitution in 1787 held their celebratory dinner at the City Tavern in Philadelphia.",
+    "label": "NOT ENOUGH INFO",
+    "category": "History"
+  },
+  {
+    "id": "tr_nei_09",
+    "claim": "Max Planck was an avid mountaineer who frequently scaled peaks in the Bavarian Alps during summer breaks.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Personal"
+  },
+  {
+    "id": "tr_nei_10",
+    "claim": "The delegates at the Treaty of Rome negotiations drafted the final treaty text inside the Palazzo dei Conservatori.",
+    "label": "NOT ENOUGH INFO",
+    "category": "History"
+  },
+  {
+    "id": "tr_nei_11",
+    "claim": "Pete Conrad carried a silver four-leaf clover medallion inside his spacesuit pocket during Apollo 12.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Space"
+  },
+  {
+    "id": "tr_nei_12",
+    "claim": "Alan Turing competed in cross-country running trials for the British Olympic marathon squad in 1948.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Biography"
+  },
+  {
+    "id": "tr_nei_13",
+    "claim": "The preliminary delegates at the San Francisco Conference met in secret rooms inside the Fairmont Hotel.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Politics"
+  },
+  {
+    "id": "tr_nei_14",
+    "claim": "Rosalind Franklin stored the original diffraction Photo 51 in an iron safe at King's College London.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Biology"
+  },
+  {
+    "id": "tr_nei_15",
+    "claim": "Howard Florey obtained laboratory funding for penicillin purification through an emergency grant from the Rockefeller Foundation.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Medicine"
+  },
+  {
+    "id": "tr_nei_16",
+    "claim": "Guido van Rossum chose the name Python while reading television comedy scripts in a computer laboratory in Amsterdam.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Computing"
+  },
+  {
+    "id": "tr_nei_17",
+    "claim": "The Panic of 1907 began after two Wall Street financiers attempted to corner the market on United Copper stock.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Finance"
+  },
+  {
+    "id": "tr_nei_18",
+    "claim": "Linus Torvalds purchased his first 386 computer using personal loans co-signed by his parents in Helsinki.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Computing"
+  },
+  {
+    "id": "tr_nei_19",
+    "claim": "British Prime Minister Edward Heath celebrated the UK's EEC entry by hosting an orchestral gala at Covent Garden.",
+    "label": "NOT ENOUGH INFO",
+    "category": "History"
+  },
+  {
+    "id": "tr_nei_20",
+    "claim": "Pierre Curie constructed his first sensitive quartz electrometer in a converted wooden shed behind the physics school.",
+    "label": "NOT ENOUGH INFO",
+    "category": "Physics"
+  }
+]

@@ -1,0 +1,1402 @@
+{
+  "timestamp": "2026-10-28 18:41:11",
+  "num_samples": 60,
+  "class_distribution": {
+    "SUPPORTED": 20,
+    "REFUTED": 20,
+    "NOT_ENOUGH_INFO": 20
+  },
+  "samples": [
+    {
+      "id": "tr_sup_01",
+      "claim": "Marie Curie was the first woman to win a Nobel Prize and the first person to win Nobel Prizes in two different scientific fields.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Marie Curie was the first woman to win a Nobel Prize.",
+        "Marie Curie was the first person to win Nobel Prizes in two different scientific fields."
+      ],
+      "feature_vector": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999989867210388,
+        0.9440500140190125,
+        0.9375,
+        0.3333333432674408
+      ],
+      "latency_s": 13.289
+    },
+    {
+      "id": "tr_sup_02",
+      "claim": "Neil Armstrong and Buzz Aldrin landed the Apollo 11 lunar module Eagle on the Moon in July 1969.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Neil Armstrong and Buzz Aldrin landed the Apollo 11 lunar module Eagle on the Moon in July 1969."
+      ],
+      "feature_vector": [
+        0.949999988079071,
+        0.949999988079071,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.999998927116394,
+        0.775600016117096,
+        0.775600016117096,
+        0.1666666716337204
+      ],
+      "latency_s": 4.788
+    },
+    {
+      "id": "tr_sup_03",
+      "claim": "Alexander Fleming discovered penicillin in September 1928 at St. Mary's Hospital in London.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Alexander Fleming discovered penicillin in September 1928.",
+        "Penicillin was discovered at St. Mary's Hospital in London."
+      ],
+      "feature_vector": [
+        0.949999988079071,
+        0.949999988079071,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.999998927116394,
+        0.910099983215332,
+        0.8810999989509583,
+        0.3333333432674408
+      ],
+      "latency_s": 6.976
+    },
+    {
+      "id": "tr_sup_04",
+      "claim": "Canberra was chosen as the capital city of Australia in 1908 as a compromise between Sydney and Melbourne.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Canberra was chosen as the capital city of Australia.",
+        "The choice of Canberra as the capital city of Australia was a compromise between Sydney and Melbourne.",
+        "The decision to choose Canberra as the capital city of Australia was made in 1908."
+      ],
+      "feature_vector": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999989867210388,
+        0.8827999234199524,
+        0.878000020980835,
+        0.5
+      ],
+      "latency_s": 9.713
+    },
+    {
+      "id": "tr_sup_05",
+      "claim": "Albert Einstein received the 1921 Nobel Prize in Physics for his discovery of the law of the photoelectric effect.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Albert Einstein received the 1921 Nobel Prize in Physics.",
+        "The Nobel Prize in Physics is awarded annually.",
+        "Albert Einstein made a discovery related to the photoelectric effect."
+      ],
+      "feature_vector": [
+        0.6666666865348816,
+        1.0,
+        0.4714045226573944,
+        0.0,
+        0.0,
+        0.0,
+        0.9999985098838806,
+        0.7897332310676575,
+        0.6912999749183655,
+        0.5
+      ],
+      "latency_s": 11.031
+    },
+    {
+      "id": "tr_sup_06",
+      "claim": "Tim Berners-Lee invented the World Wide Web in 1989 while employed at CERN in Switzerland.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Tim Berners-Lee invented the World Wide Web in 1989.",
+        "Tim Berners-Lee was employed at CERN in Switzerland in 1989."
+      ],
+      "feature_vector": [
+        1.0,
+        1.0,
+        0.0,
+        0.5,
+        1.0,
+        0.5,
+        0.3333331048488617,
+        0.8201500177383423,
+        0.6960999965667725,
+        0.3333333432674408
+      ],
+      "latency_s": 7.758
+    },
+    {
+      "id": "tr_sup_07",
+      "claim": "Nelson Mandela served as the first president of post-apartheid South Africa from 1994 to 1999.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Nelson Mandela served as the president of South Africa from 1994 to 1999.",
+        "Nelson Mandela was the first president of post-apartheid South Africa."
+      ],
+      "feature_vector": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999989867210388,
+        0.8977000117301941,
+        0.8557000160217285,
+        0.3333333432674408
+      ],
+      "latency_s": 7.308
+    },
+    {
+      "id": "tr_sup_08",
+      "claim": "The United States Constitution was drafted and signed at Independence Hall in Philadelphia in September 1787.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "The United States Constitution was drafted at Independence Hall in Philadelphia in September 1787.",
+        "The United States Constitution was signed at Independence Hall in Philadelphia in September 1787."
+      ],
+      "feature_vector": [
+        0.949999988079071,
+        0.949999988079071,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.999998927116394,
+        0.8342000246047974,
+        0.8075000047683716,
+        0.3333333432674408
+      ],
+      "latency_s": 7.792
+    },
+    {
+      "id": "tr_sup_09",
+      "claim": "Max Planck won the 1918 Nobel Prize in Physics in recognition of his discovery of energy quanta.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Max Planck won the 1918 Nobel Prize in Physics.",
+        "The 1918 Nobel Prize in Physics was awarded in recognition of Max Planck's discovery of energy quanta."
+      ],
+      "feature_vector": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999988079071045,
+        0.9433500170707703,
+        0.9275000095367432,
+        0.3333333432674408
+      ],
+      "latency_s": 6.015
+    },
+    {
+      "id": "tr_sup_10",
+      "claim": "The Treaty of Rome was signed in 1957, establishing the European Economic Community among six founding nations.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "The Treaty of Rome was signed in 1957.",
+        "The European Economic Community was established among six founding nations."
+      ],
+      "feature_vector": [
+        0.5,
+        1.0,
+        0.5,
+        0.5,
+        1.0,
+        0.5,
+        0.0,
+        0.7136499881744385,
+        0.6348000168800354,
+        0.3333333432674408
+      ],
+      "latency_s": 7.855
+    },
+    {
+      "id": "tr_sup_11",
+      "claim": "Apollo 12 achieved a precision landing in the Ocean of Storms in November 1969, guided by Pete Conrad and Alan Bean.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Apollo 12 achieved a precision landing in the Ocean of Storms in November 1969.",
+        "Pete Conrad guided Apollo 12.",
+        "Alan Bean guided Apollo 12."
+      ],
+      "feature_vector": [
+        0.5999999642372131,
+        0.949999988079071,
+        0.4262237250804901,
+        0.0,
+        0.0,
+        0.0,
+        0.9999983310699463,
+        0.6946666836738586,
+        0.6520000100135803,
+        0.5
+      ],
+      "latency_s": 9.982
+    },
+    {
+      "id": "tr_sup_12",
+      "claim": "Alan Turing designed the electromechanical Bombe machine at Bletchley Park to decipher German Enigma ciphers during World War II.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Alan Turing designed the electromechanical Bombe machine at Bletchley Park.",
+        "The Bombe machine was used to decipher German Enigma ciphers.",
+        "The design of the Bombe machine was a contribution to the Allied effort during World War II."
+      ],
+      "feature_vector": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999989867210388,
+        0.7292115092277527,
+        0.6590210199356079,
+        0.5
+      ],
+      "latency_s": 14.286
+    },
+    {
+      "id": "tr_sup_13",
+      "claim": "The United Nations Charter was signed in San Francisco in June 1945 following the conclusion of World War II.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "The United Nations Charter was signed in San Francisco.",
+        "The signing of the United Nations Charter occurred in June 1945.",
+        "The United Nations Charter was signed following the conclusion of World War II."
+      ],
+      "feature_vector": [
+        0.949999988079071,
+        1.0,
+        0.0707106664776802,
+        0.6666666865348816,
+        1.0,
+        0.4714045226573944,
+        0.175257608294487,
+        0.7971999645233154,
+        0.7533000111579895,
+        0.5
+      ],
+      "latency_s": 10.207
+    },
+    {
+      "id": "tr_sup_14",
+      "claim": "James Watson and Francis Crick proposed the double-helix structure of DNA in 1953 at the University of Cambridge.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "James Watson and Francis Crick proposed the double-helix structure of DNA in 1953.",
+        "The proposal occurred at the University of Cambridge."
+      ],
+      "feature_vector": [
+        0.4749999940395355,
+        0.949999988079071,
+        0.4749999940395355,
+        0.0,
+        0.0,
+        0.0,
+        0.9999979138374329,
+        0.6705499887466431,
+        0.483599990606308,
+        0.3333333432674408
+      ],
+      "latency_s": 10.556
+    },
+    {
+      "id": "tr_sup_15",
+      "claim": "Howard Florey and Ernst Boris Chain developed methods for the mass production of penicillin in Oxford in 1940.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Howard Florey and Ernst Boris Chain developed methods for the mass production of penicillin in Oxford in 1940."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7483999729156494,
+        0.7483999729156494,
+        0.1666666716337204
+      ],
+      "latency_s": 5.32
+    },
+    {
+      "id": "tr_sup_16",
+      "claim": "Guido van Rossum released the first version of the Python programming language in 1991.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Guido van Rossum released the first version of the Python programming language.",
+        "The first version of the Python programming language was released in 1991."
+      ],
+      "feature_vector": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999988079071045,
+        0.8046000003814697,
+        0.76419997215271,
+        0.3333333432674408
+      ],
+      "latency_s": 5.158
+    },
+    {
+      "id": "tr_sup_17",
+      "claim": "The Federal Reserve System was created in 1913 when President Woodrow Wilson signed the Federal Reserve Act.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "The Federal Reserve System was created in 1913",
+        "President Woodrow Wilson signed the Federal Reserve Act"
+      ],
+      "feature_vector": [
+        0.9750000238418579,
+        1.0,
+        0.025000005960464478,
+        0.0,
+        0.0,
+        0.0,
+        0.9999989867210388,
+        0.883899986743927,
+        0.8476999998092651,
+        0.3333333432674408
+      ],
+      "latency_s": 7.151
+    },
+    {
+      "id": "tr_sup_18",
+      "claim": "Linus Torvalds released the initial Linux kernel in 1991 as a free and open-source operating system core.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Linus Torvalds released the initial Linux kernel in 1991.",
+        "The initial Linux kernel was released as a free operating system core.",
+        "The initial Linux kernel was released as an open-source operating system core."
+      ],
+      "feature_vector": [
+        1.0,
+        1.0,
+        0.0,
+        0.3333333432674408,
+        1.0,
+        0.471404492855072,
+        0.49999961256980896,
+        0.8302666544914246,
+        0.7832000255584717,
+        0.5
+      ],
+      "latency_s": 10.99
+    },
+    {
+      "id": "tr_sup_19",
+      "claim": "The United Kingdom officially entered the European Communities on January 1, 1973 alongside Denmark and Ireland.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "The United Kingdom officially entered the European Communities on January 1, 1973.",
+        "Denmark officially entered the European Communities on January 1, 1973.",
+        "Ireland officially entered the European Communities on January 1, 1973."
+      ],
+      "feature_vector": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999989867210388,
+        0.8357000350952148,
+        0.8043000102043152,
+        0.5
+      ],
+      "latency_s": 11.516
+    },
+    {
+      "id": "tr_sup_20",
+      "claim": "Pierre Curie shared the 1903 Nobel Prize in Physics with Marie Curie and Henri Becquerel.",
+      "true_label": "SUPPORTED",
+      "label_idx": 0,
+      "sub_claims": [
+        "Pierre Curie shared the 1903 Nobel Prize in Physics with Marie Curie.",
+        "Henri Becquerel was awarded the 1903 Nobel Prize in Physics."
+      ],
+      "feature_vector": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.0,
+        0.42500001192092896,
+        0.8500000238418579,
+        0.42500001192092896,
+        0.3333330750465393,
+        0.8964999914169312,
+        0.8532000184059143,
+        0.3333333432674408
+      ],
+      "latency_s": 8.223
+    },
+    {
+      "id": "tr_ref_01",
+      "claim": "Marie Curie won the 1911 Nobel Prize in Literature for her scientific autobiographies.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Marie Curie won the 1911 Nobel Prize in Literature.",
+        "Marie Curie wrote scientific autobiographies."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.5,
+        1.0,
+        0.5,
+        -0.9999979734420776,
+        0.7576000094413757,
+        0.6811000108718872,
+        0.3333333432674408
+      ],
+      "latency_s": 5.515
+    },
+    {
+      "id": "tr_ref_02",
+      "claim": "Michael Collins walked on the Moon alongside Neil Armstrong during the Apollo 11 lunar EVA.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Michael Collins was part of the Apollo 11 mission.",
+        "Neil Armstrong walked on the Moon during the Apollo 11 lunar EVA.",
+        "Michael Collins did not walk on the Moon during the Apollo 11 lunar EVA."
+      ],
+      "feature_vector": [
+        0.6666666865348816,
+        1.0,
+        0.4714045226573944,
+        0.6666666865348816,
+        1.0,
+        0.4714045226573944,
+        0.0,
+        0.7633000016212463,
+        0.7196999788284302,
+        0.5
+      ],
+      "latency_s": 10.184
+    },
+    {
+      "id": "tr_ref_03",
+      "claim": "Sydney is the constitutionally designated federal capital city of the Commonwealth of Australia.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Sydney is the constitutionally designated federal capital city of Australia."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.8500000238418579,
+        0.8500000238418579,
+        0.0,
+        -0.9999988079071045,
+        0.8294000029563904,
+        0.8294000029563904,
+        0.1666666716337204
+      ],
+      "latency_s": 3.796
+    },
+    {
+      "id": "tr_ref_04",
+      "claim": "Albert Einstein was awarded the 1921 Nobel Prize in Physics for his formulation of the general theory of relativity.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Albert Einstein was awarded the 1921 Nobel Prize in Physics.",
+        "The 1921 Nobel Prize in Physics was awarded for his formulation of the general theory of relativity.",
+        "Albert Einstein formulated the general theory of relativity."
+      ],
+      "feature_vector": [
+        0.5666666626930237,
+        0.8500000238418579,
+        0.4006938636302948,
+        0.28333333134651184,
+        0.8500000238418579,
+        0.4006938636302948,
+        0.33333295583724976,
+        0.7850666046142578,
+        0.7175999879837036,
+        0.5
+      ],
+      "latency_s": 11.684
+    },
+    {
+      "id": "tr_ref_05",
+      "claim": "Penicillin is an antiviral drug discovered by Louis Pasteur in Paris to cure influenza outbreaks.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Penicillin is an antiviral drug.",
+        "Penicillin was discovered by Louis Pasteur.",
+        "Penicillin was discovered in Paris."
+      ],
+      "feature_vector": [
+        0.3333333432674408,
+        1.0,
+        0.471404492855072,
+        1.0,
+        1.0,
+        0.0,
+        -0.49999961256980896,
+        0.8294000625610352,
+        0.7886000275611877,
+        0.5
+      ],
+      "latency_s": 10.188
+    },
+    {
+      "id": "tr_ref_06",
+      "claim": "The United Kingdom remained a full member of the European Union throughout the entirety of 2022.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The United Kingdom was a full member of the European Union in 2022.",
+        "The United Kingdom remained a member of the European Union throughout 2022."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        -0.9999989867210388,
+        0.739300012588501,
+        0.7221999764442444,
+        0.3333333432674408
+      ],
+      "latency_s": 7.545
+    },
+    {
+      "id": "tr_ref_07",
+      "claim": "The United States Constitution was drafted and signed at the Capitol building in Washington, D.C.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The United States Constitution was drafted at the Capitol building in Washington, D.C.",
+        "The United States Constitution was signed at the Capitol building in Washington, D.C."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        -0.9999989867210388,
+        0.7021499872207642,
+        0.6723999977111816,
+        0.3333333432674408
+      ],
+      "latency_s": 4.729
+    },
+    {
+      "id": "tr_ref_08",
+      "claim": "Apollo 12 suffered an in-flight oxygen tank explosion and failed to achieve a lunar surface landing.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Apollo 12 suffered an in-flight oxygen tank explosion.",
+        "Apollo 12 failed to achieve a lunar surface landing."
+      ],
+      "feature_vector": [
+        0.5,
+        1.0,
+        0.5,
+        0.5,
+        1.0,
+        0.5,
+        0.0,
+        0.7102999687194824,
+        0.6877999901771545,
+        0.3333333432674408
+      ],
+      "latency_s": 7.651
+    },
+    {
+      "id": "tr_ref_09",
+      "claim": "The Treaty of Rome was signed in 1992 in the Netherlands to formally create the European Union single currency.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The Treaty of Rome was signed in 1992.",
+        "The Treaty of Rome was signed in the Netherlands.",
+        "The European Union single currency was formally created by the Treaty of Rome."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.3333333432674408,
+        1.0,
+        0.471404492855072,
+        -0.9999970197677612,
+        0.7126333117485046,
+        0.6687999963760376,
+        0.5
+      ],
+      "latency_s": 12.386
+    },
+    {
+      "id": "tr_ref_10",
+      "claim": "Alexander Fleming received the 1945 Nobel Prize in Medicine entirely as a sole laureate without co-recipients.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Alexander Fleming received the 1945 Nobel Prize in Medicine.",
+        "The 1945 Nobel Prize in Medicine was awarded entirely as a sole laureate.",
+        "Alexander Fleming did not have any co-recipients for the 1945 Nobel Prize in Medicine."
+      ],
+      "feature_vector": [
+        0.3333333432674408,
+        1.0,
+        0.471404492855072,
+        0.28333333134651184,
+        0.8500000238418579,
+        0.4006938636302948,
+        0.08108096569776535,
+        0.6751334071159363,
+        0.6164000034332275,
+        0.5
+      ],
+      "latency_s": 11.457
+    },
+    {
+      "id": "tr_ref_11",
+      "claim": "Tim Berners-Lee developed the World Wide Web while employed as a software engineer at Bell Labs in New Jersey.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Tim Berners-Lee developed the World Wide Web.",
+        "Tim Berners-Lee was employed as a software engineer at Bell Labs in New Jersey."
+      ],
+      "feature_vector": [
+        0.5,
+        1.0,
+        0.5,
+        0.5,
+        1.0,
+        0.5,
+        0.0,
+        0.7656499743461609,
+        0.6294999718666077,
+        0.3333333432674408
+      ],
+      "latency_s": 7.953
+    },
+    {
+      "id": "tr_ref_12",
+      "claim": "Alan Turing built the ACE computer and deployed it operationally before the end of 1944.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Alan Turing built the ACE computer.",
+        "The ACE computer was deployed operationally before the end of 1944."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5278213024139404,
+        0.3176426589488983,
+        0.3333333432674408
+      ],
+      "latency_s": 7.187
+    },
+    {
+      "id": "tr_ref_13",
+      "claim": "The League of Nations was founded in San Francisco in 1945 immediately after World War II.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The League of Nations was founded in San Francisco.",
+        "The League of Nations was founded in 1945.",
+        "The League of Nations was founded immediately after World War II."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.28333333134651184,
+        0.8500000238418579,
+        0.4006938636302948,
+        -0.9999964833259583,
+        0.7715000510215759,
+        0.6837000250816345,
+        0.5
+      ],
+      "latency_s": 11.046
+    },
+    {
+      "id": "tr_ref_14",
+      "claim": "The double-helix molecular structure of DNA was discovered in 1920 by Gregor Mendel.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The double-helix molecular structure of DNA exists.",
+        "The double-helix molecular structure of DNA was discovered in 1920.",
+        "Gregor Mendel discovered the double-helix molecular structure of DNA."
+      ],
+      "feature_vector": [
+        0.3333333432674408,
+        1.0,
+        0.471404492855072,
+        0.6666666865348816,
+        1.0,
+        0.4714045226573944,
+        -0.33333298563957214,
+        0.7301333546638489,
+        0.6693000197410583,
+        0.5
+      ],
+      "latency_s": 10.948
+    },
+    {
+      "id": "tr_ref_15",
+      "claim": "The Federal Reserve was established in 1865 during the American Civil War by Abraham Lincoln.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The Federal Reserve was established in 1865.",
+        "The Federal Reserve was established during the American Civil War.",
+        "Abraham Lincoln was involved in the establishment of the Federal Reserve."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        -0.9999989867210388,
+        0.7672333717346191,
+        0.7141000032424927,
+        0.5
+      ],
+      "latency_s": 10.874
+    },
+    {
+      "id": "tr_ref_16",
+      "claim": "Max Planck won the Nobel Prize in Chemistry for synthesizing artificial radioactive isotopes.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Max Planck won the Nobel Prize in Chemistry.",
+        "Max Planck synthesized artificial radioactive isotopes."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        -0.9999989867210388,
+        0.7138500213623047,
+        0.5861999988555908,
+        0.3333333432674408
+      ],
+      "latency_s": 4.392
+    },
+    {
+      "id": "tr_ref_17",
+      "claim": "The first ARPANET message transmission occurred between Stanford University and Harvard University in 1985.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The first ARPANET message transmission occurred in 1985.",
+        "The first ARPANET message transmission was between Stanford University and Harvard University."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        -0.9999989867210388,
+        0.6269000172615051,
+        0.5712000131607056,
+        0.3333333432674408
+      ],
+      "latency_s": 9.652
+    },
+    {
+      "id": "tr_ref_18",
+      "claim": "Nelson Mandela was awarded the Nobel Peace Prize in 1980 for establishing the African National Congress.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Nelson Mandela was awarded the Nobel Peace Prize in 1980.",
+        "Nelson Mandela established the African National Congress."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.708299994468689,
+        0.6797999739646912,
+        0.3333333432674408
+      ],
+      "latency_s": 8.341
+    },
+    {
+      "id": "tr_ref_19",
+      "claim": "Linus Torvalds created the Linux kernel while working as a computer science professor at MIT.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "Linus Torvalds created the Linux kernel.",
+        "Linus Torvalds worked as a computer science professor at MIT."
+      ],
+      "feature_vector": [
+        0.5,
+        1.0,
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.9999979734420776,
+        0.7561582326889038,
+        0.6822165250778198,
+        0.3333333432674408
+      ],
+      "latency_s": 9.203
+    },
+    {
+      "id": "tr_ref_20",
+      "claim": "The United Kingdom joined the European Economic Community in 1957 as one of its six original founding signatories.",
+      "true_label": "REFUTED",
+      "label_idx": 1,
+      "sub_claims": [
+        "The United Kingdom joined the European Economic Community in 1957.",
+        "The United Kingdom was one of the six original founding signatories of the European Economic Community."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.5,
+        1.0,
+        0.5,
+        -0.9999979734420776,
+        0.6442500352859497,
+        0.6270999908447266,
+        0.3333333432674408
+      ],
+      "latency_s": 10.252
+    },
+    {
+      "id": "tr_nei_01",
+      "claim": "Marie Curie was initially rejected by the University of Paris due to insufficient tuition payment records.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Marie Curie was initially rejected by the University of Paris.",
+        "Marie Curie had insufficient tuition payment records."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6076500415802002,
+        0.5676000118255615,
+        0.3333333432674408
+      ],
+      "latency_s": 6.472
+    },
+    {
+      "id": "tr_nei_02",
+      "claim": "Neil Armstrong listened to cassette recordings of classical orchestral music during the translunar coast of Apollo 11.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Neil Armstrong listened to cassette recordings of classical orchestral music during the translunar coast of Apollo 11."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.541700005531311,
+        0.541700005531311,
+        0.1666666716337204
+      ],
+      "latency_s": 7.151
+    },
+    {
+      "id": "tr_nei_03",
+      "claim": "Alexander Fleming initially attempted to extract antibacterial compounds using specialized cold-pressed citrus oils.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Alexander Fleming initially attempted to extract antibacterial compounds using specialized cold-pressed citrus oils."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5630000233650208,
+        0.5630000233650208,
+        0.1666666716337204
+      ],
+      "latency_s": 4.491
+    },
+    {
+      "id": "tr_nei_04",
+      "claim": "The architects designing Canberra based its arterial road grid on the historical street plans of Florence, Italy.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "The architects designing Canberra based its arterial road grid on historical street plans.",
+        "The historical street plans used by the architects designing Canberra are from Florence, Italy."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.5,
+        1.0,
+        0.5,
+        -0.9999979734420776,
+        0.5569499731063843,
+        0.5145000219345093,
+        0.3333333432674408
+      ],
+      "latency_s": 8.558
+    },
+    {
+      "id": "tr_nei_05",
+      "claim": "Albert Einstein used his early patent office salary to finance his private study of theoretical electrodynamics.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Albert Einstein used his early patent office salary to finance his private study of theoretical electrodynamics."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6577000021934509,
+        0.6577000021934509,
+        0.1666666716337204
+      ],
+      "latency_s": 4.292
+    },
+    {
+      "id": "tr_nei_06",
+      "claim": "Tim Berners-Lee wrote the first hyper-text markup specification using a second-hand British typewriter in Geneva.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Tim Berners-Lee wrote the first hyper-text markup specification.",
+        "The first hyper-text markup specification was written in Geneva.",
+        "Tim Berners-Lee used a second-hand British typewriter to write the first hyper-text markup specification."
+      ],
+      "feature_vector": [
+        0.6666666865348816,
+        1.0,
+        0.4714045226573944,
+        0.0,
+        0.0,
+        0.0,
+        0.9999985098838806,
+        0.6104374527931213,
+        0.5842000246047974,
+        0.5
+      ],
+      "latency_s": 11.173
+    },
+    {
+      "id": "tr_nei_07",
+      "claim": "Nelson Mandela completed his correspondence degree in law while working in the prison quarry at Robben Island.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Nelson Mandela completed a correspondence degree in law.",
+        "Nelson Mandela worked in the prison quarry at Robben Island."
+      ],
+      "feature_vector": [
+        0.42500001192092896,
+        0.8500000238418579,
+        0.42500001192092896,
+        0.0,
+        0.0,
+        0.0,
+        0.9999976754188538,
+        0.6457533836364746,
+        0.5870000123977661,
+        0.3333333432674408
+      ],
+      "latency_s": 9.31
+    },
+    {
+      "id": "tr_nei_08",
+      "claim": "The delegates signing the US Constitution in 1787 held their celebratory dinner at the City Tavern in Philadelphia.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "The delegates signing the US Constitution in 1787 held a celebratory dinner at the City Tavern in Philadelphia."
+      ],
+      "feature_vector": [
+        0.8500000238418579,
+        0.8500000238418579,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.9999988079071045,
+        0.7491999864578247,
+        0.7491999864578247,
+        0.1666666716337204
+      ],
+      "latency_s": 4.611
+    },
+    {
+      "id": "tr_nei_09",
+      "claim": "Max Planck was an avid mountaineer who frequently scaled peaks in the Bavarian Alps during summer breaks.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Max Planck was an avid mountaineer.",
+        "Max Planck frequently scaled peaks in the Bavarian Alps during summer breaks."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6009500026702881,
+        0.5228000283241272,
+        0.3333333432674408
+      ],
+      "latency_s": 11.272
+    },
+    {
+      "id": "tr_nei_10",
+      "claim": "The delegates at the Treaty of Rome negotiations drafted the final treaty text inside the Palazzo dei Conservatori.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "The delegates at the Treaty of Rome negotiations drafted the final treaty text.",
+        "The final treaty text was drafted inside the Palazzo dei Conservatori."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5697000026702881,
+        0.527400016784668,
+        0.3333333432674408
+      ],
+      "latency_s": 9.411
+    },
+    {
+      "id": "tr_nei_11",
+      "claim": "Pete Conrad carried a silver four-leaf clover medallion inside his spacesuit pocket during Apollo 12.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Pete Conrad carried a silver four-leaf clover medallion inside his spacesuit pocket during Apollo 12."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6606000065803528,
+        0.6606000065803528,
+        0.1666666716337204
+      ],
+      "latency_s": 5.147
+    },
+    {
+      "id": "tr_nei_12",
+      "claim": "Alan Turing competed in cross-country running trials for the British Olympic marathon squad in 1948.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Alan Turing competed in cross-country running trials.",
+        "The trials were for the British Olympic marathon squad.",
+        "The trials took place in 1948."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.28333333134651184,
+        0.8500000238418579,
+        0.4006938934326172,
+        -0.9999964833259583,
+        0.6056919693946838,
+        0.5161777138710022,
+        0.5
+      ],
+      "latency_s": 18.782
+    },
+    {
+      "id": "tr_nei_13",
+      "claim": "The preliminary delegates at the San Francisco Conference met in secret rooms inside the Fairmont Hotel.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "The preliminary delegates at the San Francisco Conference met in secret rooms.",
+        "The San Francisco Conference took place at the Fairmont Hotel."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5016999840736389,
+        0.4999000132083893,
+        0.3333333432674408
+      ],
+      "latency_s": 11.861
+    },
+    {
+      "id": "tr_nei_14",
+      "claim": "Rosalind Franklin stored the original diffraction Photo 51 in an iron safe at King's College London.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Rosalind Franklin stored Photo 51 in an iron safe at King's College London."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.4925999939441681,
+        0.4925999939441681,
+        0.1666666716337204
+      ],
+      "latency_s": 10.455
+    },
+    {
+      "id": "tr_nei_15",
+      "claim": "Howard Florey obtained laboratory funding for penicillin purification through an emergency grant from the Rockefeller Foundation.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Howard Florey obtained laboratory funding for penicillin purification",
+        "The funding was provided through an emergency grant",
+        "The Rockefeller Foundation was the source of the funding"
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6282302737236023,
+        0.4195677936077118,
+        0.5
+      ],
+      "latency_s": 19.098
+    },
+    {
+      "id": "tr_nei_16",
+      "claim": "Guido van Rossum chose the name Python while reading television comedy scripts in a computer laboratory in Amsterdam.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Guido van Rossum chose the name Python",
+        "Guido van Rossum was reading television comedy scripts",
+        "Guido van Rossum was in a computer laboratory in Amsterdam"
+      ],
+      "feature_vector": [
+        0.6666666865348816,
+        1.0,
+        0.4714045226573944,
+        0.0,
+        0.0,
+        0.0,
+        0.9999985098838806,
+        0.6555483937263489,
+        0.47110000252723694,
+        0.5
+      ],
+      "latency_s": 14.156
+    },
+    {
+      "id": "tr_nei_17",
+      "claim": "The Panic of 1907 began after two Wall Street financiers attempted to corner the market on United Copper stock.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "The Panic of 1907 began",
+        "Two Wall Street financiers attempted to corner the market on United Copper stock"
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6338487267494202,
+        0.4127974212169647,
+        0.3333333432674408
+      ],
+      "latency_s": 6.931
+    },
+    {
+      "id": "tr_nei_18",
+      "claim": "Linus Torvalds purchased his first 386 computer using personal loans co-signed by his parents in Helsinki.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Linus Torvalds purchased a 386 computer in Helsinki.",
+        "The computer was purchased using personal loans co-signed by Linus Torvalds' parents."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.44699999690055847,
+        0.4300999939441681,
+        0.3333333432674408
+      ],
+      "latency_s": 9.779
+    },
+    {
+      "id": "tr_nei_19",
+      "claim": "British Prime Minister Edward Heath celebrated the UK's EEC entry by hosting an orchestral gala at Covent Garden.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "British Prime Minister Edward Heath hosted an orchestral gala at Covent Garden.",
+        "The UK entered the EEC."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.4663500189781189,
+        0.2980000078678131,
+        0.3333333432674408
+      ],
+      "latency_s": 6.166
+    },
+    {
+      "id": "tr_nei_20",
+      "claim": "Pierre Curie constructed his first sensitive quartz electrometer in a converted wooden shed behind the physics school.",
+      "true_label": "NOT ENOUGH INFO",
+      "label_idx": 2,
+      "sub_claims": [
+        "Pierre Curie constructed a sensitive quartz electrometer.",
+        "The electrometer was constructed in a converted wooden shed.",
+        "The shed was located behind the physics school."
+      ],
+      "feature_vector": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.44993332028388977,
+        0.2567000091075897,
+        0.5
+      ],
+      "latency_s": 15.912
+    }
+  ]
+}
